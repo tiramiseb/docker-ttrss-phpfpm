@@ -15,7 +15,10 @@ do
 done
 
 # Provide the correct path for the php executable
-sed -i "/define(.PHP_EXECUTABLE/s/.*/  define('PHP_EXECUTABLE', '/usr/local/bin/php'); \/\/ configured by start script/" $WWW/config.php
+sed -i "/define(.PHP_EXECUTABLE/s|.*|  define('PHP_EXECUTABLE', '/usr/local/bin/php'); // configured by start script|" $WWW/config.php
+
+# Start update daemon
+su www-data -c "/usr/local/bin/php /var/www/html/update_daemon2.php" &
 
 # Start PHP-FPM
 docker-php-entrypoint php-fpm
