@@ -41,3 +41,5 @@ In MySQL, execute the following SQL commands:
 CREATE DATABASE <DB_NAME> CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci';"
 GRANT ALL ON <DB_NAME>.* TO '<DB_USER>' IDENTIFIED BY '<DB_PASS>';"
 ```
+
+You also need to initialize the database content. When migrating from another server, simply export the database and import it here. For a new installation, use the schema for your database server (MySQL or PostgreSQL) at https://git.tt-rss.org/git/tt-rss/src/master/schema.
