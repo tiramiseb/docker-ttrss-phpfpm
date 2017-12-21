@@ -11,7 +11,7 @@ env | while read data
 do
     name=$(echo $data | cut -d= -f1)
     value=$(echo $data | cut -d= -f2-)
-    sed -i "/define(.$name/s/.*/  define('$name', '$value'); \/\/ configured by start script/" $WWW/config.php
+    sed -i "/define(.$name/s|.*|  define('$name', '$value'); // configured by start script|" $WWW/config.php
 done
 
 # Provide the correct path for the php executable
