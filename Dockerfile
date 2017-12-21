@@ -3,7 +3,7 @@ FROM php:fpm-alpine
 RUN apk update
 RUN apk add git
 RUN git clone https://tt-rss.org/git/tt-rss.git /var/www/html
-RUN chown -R www-data.www-data /var/www/html/cache /var/www/html/feed-icons
+RUN chown -R www-data.www-data /var/www/html/cache /var/www/html/feed-icons /var/www/html/lock
 
 COPY ttrss.sh /usr/local/bin/ttrss.sh
 COPY nginx.conf /etc/nginx/conf.d/ttrss.conf
