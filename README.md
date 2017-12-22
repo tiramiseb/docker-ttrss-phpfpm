@@ -43,3 +43,11 @@ GRANT ALL ON <DB_NAME>.* TO '<DB_USER>' IDENTIFIED BY '<DB_PASS>';"
 ```
 
 You also need to initialize the database content. When migrating from another server, simply export the database and import it here. For a new installation, use the schema for your database server (MySQL or PostgreSQL) at https://git.tt-rss.org/git/tt-rss/src/master/schema.
+
+For MySQL, for instance, you may use the following commands on any host able to connect to your database server:
+```
+curl -O https://git.tt-rss.org/git/tt-rss/raw/master/schema/ttrss_schema_mysql.sql
+mysql -h <DB_HOST> -u <DB_USER> -p <DB_NAME> < ttrss_schema_mysql.sql
+```
+
+You may then access Tiny Tiny RSS with the default credentials: `admin`/`password`.
